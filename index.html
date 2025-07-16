@@ -331,7 +331,93 @@
             }
         };
 
-        let currentLang = 'ar';
+        let currentLang = 'ar'; // Default language set to Arabic
+
+        // Function to apply content based on currentLang
+        function applyLanguageContent() {
+            const html = document.documentElement;
+            const body = document.body;
+            const toggleBtn = document.getElementById('lang-toggle-btn');
+            const companyLogo = document.getElementById('company-logo');
+
+            html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            body.classList.toggle('en', currentLang === 'en');
+            
+            toggleBtn.innerText = currentLang === 'ar' ? 'English' : 'العربية';
+
+            document.title = content[currentLang].title;
+            companyLogo.src = content[currentLang].logoUrl;
+            companyLogo.alt = content[currentLang].logoAlt;
+            document.getElementById('company-name').innerText = content[currentLang].companyName;
+            document.getElementById('slogan').innerText = content[currentLang].slogan;
+            
+            document.getElementById('offer-banner-title-line1').innerText = content[currentLang].offerBannerTitle.line1;
+            document.getElementById('offer-banner-title-line2').innerText = content[currentLang].offerBannerTitle.line2;
+
+            document.getElementById('clover-honey-title').innerText = content[currentLang].cloverHoneyTitle;
+            document.getElementById('clover-honey-description').innerText = content[currentLang].cloverHoneyDescription;
+            document.getElementById('choose-size-text').innerText = content[currentLang].chooseSizeText;
+
+            const sizeButtons = document.querySelectorAll('#clover-honey-card .size-btn');
+            sizeButtons.forEach(button => {
+                const arText = button.getAttribute('data-ar');
+                const enText = button.getAttribute('data-en');
+                button.innerText = currentLang === 'ar' ? arText : enText;
+            });
+
+            document.getElementById('health-offer-title').innerText = content[currentLang].healthOfferTitle;
+            document.getElementById('health-offer-description').innerText = content[currentLang].healthOfferDescription;
+            
+            const healthOfferList = document.getElementById('health-offer-list');
+            healthOfferList.innerHTML = content[currentLang].healthOfferList.map(item => `<li class="flex items-center justify-start gap-3">${item}</li>`).join('');
+
+            document.getElementById('health-offer-price').innerText = content[currentLang].healthOfferPrice;
+
+            document.getElementById('order-quantity-info').innerText = content[currentLang].orderQuantityInfo;
+            document.getElementById('order-form-subtitle').innerText = content[currentLang].orderFormSubtitle;
+            document.getElementById('label-customer-name').innerText = content[currentLang].labelCustomerName;
+            document.getElementById('customer-name').placeholder = content[currentLang].placeholderCustomerName;
+            document.getElementById('label-customer-phone').innerText = content[currentLang].labelCustomerPhone;
+            document.getElementById('customer-phone').placeholder = content[currentLang].placeholderCustomerPhone;
+            document.getElementById('label-delivery-location').innerText = content[currentLang].labelDeliveryLocation;
+            document.getElementById('delivery-location').placeholder = content[currentLang].placeholderDeliveryLocation;
+            
+            document.getElementById('add-product-btn').innerText = content[currentLang].addProductBtn;
+            document.getElementById('send-order-btn').innerText = content[currentLang].sendOrderBtn;
+            document.getElementById('send-inquiry-btn').innerText = content[currentLang].sendInquiryBtn;
+
+            const productSelectItems = document.querySelectorAll('.product-select-item');
+            productSelectItems.forEach(selectElement => {
+                const currentSelectedValue = selectElement.value;
+                selectElement.innerHTML = createProductOptionElements();
+                selectElement.value = currentSelectedValue;
+            });
+
+            document.querySelectorAll('.product-line label[data-label-key="labelProductSelect"]').forEach(label => {
+                label.innerText = content[currentLang].labelProductSelect;
+            });
+            document.querySelectorAll('.product-line label[data-label-key="labelQuantityInput"]').forEach(label => {
+                label.innerText = content[currentLang].labelQuantityInput;
+            });
+
+            document.querySelectorAll('.product-line button').forEach(btn => {
+                if (btn.onclick.toString().includes('removeProductLine')) {
+                    btn.innerText = content[currentLang].removeProductBtn;
+                }
+            });
+            
+            const currentPriceText = document.getElementById('honey-price').innerText;
+            const currentPriceValue = parseInt(currentPriceText.match(/\d+/)[0]);
+            document.getElementById('honey-price').innerText = `${currentPriceValue} ${content[currentLang].currency}`;
+
+            updateOrderFormPrice();
+            
+            const activeSizeButton = document.querySelector('#clover-honey-card .size-btn.active-size');
+            if (activeSizeButton) {
+                const productKey = activeSizeButton.onclick.toString().match(/'([^']+)'/)[1];
+                updatePrice(productsData[productKey].price, activeSizeButton, productKey);
+            }
+        }
 
         function updatePrice(price, selectedButton, productKey) {
             const currency = content[currentLang].currency;
@@ -468,88 +554,7 @@
 
         function switchLanguage() {
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            const html = document.documentElement;
-            const body = document.body;
-            const toggleBtn = document.getElementById('lang-toggle-btn');
-            const companyLogo = document.getElementById('company-logo');
-
-            html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
-            body.classList.toggle('en', currentLang === 'en');
-            
-            toggleBtn.innerText = currentLang === 'ar' ? 'English' : 'العربية';
-
-            document.title = content[currentLang].title;
-            companyLogo.src = content[currentLang].logoUrl; // Update logo image source
-            companyLogo.alt = content[currentLang].logoAlt; // Update logo alt text
-            document.getElementById('company-name').innerText = content[currentLang].companyName;
-            document.getElementById('slogan').innerText = content[currentLang].slogan;
-            
-            document.getElementById('offer-banner-title-line1').innerText = content[currentLang].offerBannerTitle.line1;
-            document.getElementById('offer-banner-title-line2').innerText = content[currentLang].offerBannerTitle.line2;
-
-            document.getElementById('clover-honey-title').innerText = content[currentLang].cloverHoneyTitle;
-            document.getElementById('clover-honey-description').innerText = content[currentLang].cloverHoneyDescription;
-            document.getElementById('choose-size-text').innerText = content[currentLang].chooseSizeText;
-
-            const sizeButtons = document.querySelectorAll('#clover-honey-card .size-btn');
-            sizeButtons.forEach(button => {
-                const arText = button.getAttribute('data-ar');
-                const enText = button.getAttribute('data-en');
-                button.innerText = currentLang === 'ar' ? arText : enText;
-            });
-
-            document.getElementById('health-offer-title').innerText = content[currentLang].healthOfferTitle;
-            document.getElementById('health-offer-description').innerText = content[currentLang].healthOfferDescription;
-            
-            const healthOfferList = document.getElementById('health-offer-list');
-            healthOfferList.innerHTML = content[currentLang].healthOfferList.map(item => `<li class="flex items-center justify-start gap-3">${item}</li>`).join('');
-
-            document.getElementById('health-offer-price').innerText = content[currentLang].healthOfferPrice;
-
-            document.getElementById('order-quantity-info').innerText = content[currentLang].orderQuantityInfo;
-            document.getElementById('order-form-subtitle').innerText = content[currentLang].orderFormSubtitle;
-            document.getElementById('label-customer-name').innerText = content[currentLang].labelCustomerName;
-            document.getElementById('customer-name').placeholder = content[currentLang].placeholderCustomerName;
-            document.getElementById('label-customer-phone').innerText = content[currentLang].labelCustomerPhone;
-            document.getElementById('customer-phone').placeholder = content[currentLang].placeholderCustomerPhone;
-            document.getElementById('label-delivery-location').innerText = content[currentLang].labelDeliveryLocation;
-            document.getElementById('delivery-location').placeholder = content[currentLang].placeholderDeliveryLocation;
-            
-            document.getElementById('add-product-btn').innerText = content[currentLang].addProductBtn;
-            document.getElementById('send-order-btn').innerText = content[currentLang].sendOrderBtn;
-            document.getElementById('send-inquiry-btn').innerText = content[currentLang].sendInquiryBtn;
-
-            const productSelectItems = document.querySelectorAll('.product-select-item');
-            productSelectItems.forEach(selectElement => {
-                const currentSelectedValue = selectElement.value;
-                selectElement.innerHTML = createProductOptionElements();
-                selectElement.value = currentSelectedValue;
-            });
-
-            document.querySelectorAll('.product-line label[data-label-key="labelProductSelect"]').forEach(label => {
-                label.innerText = content[currentLang].labelProductSelect;
-            });
-            document.querySelectorAll('.product-line label[data-label-key="labelQuantityInput"]').forEach(label => {
-                label.innerText = content[currentLang].labelQuantityInput;
-            });
-
-            document.querySelectorAll('.product-line button').forEach(btn => {
-                if (btn.onclick.toString().includes('removeProductLine')) {
-                    btn.innerText = content[currentLang].removeProductBtn;
-                }
-            });
-            
-            const currentPriceText = document.getElementById('honey-price').innerText;
-            const currentPriceValue = parseInt(currentPriceText.match(/\d+/)[0]);
-            document.getElementById('honey-price').innerText = `${currentPriceValue} ${content[currentLang].currency}`;
-
-            updateOrderFormPrice();
-            
-            const activeSizeButton = document.querySelector('#clover-honey-card .size-btn.active-size');
-            if (activeSizeButton) {
-                const productKey = activeSizeButton.onclick.toString().match(/'([^']+)'/)[1];
-                updatePrice(productsData[productKey].price, activeSizeButton, productKey);
-            }
+            applyLanguageContent(); // Call the function to apply content for the new language
         }
 
         document.getElementById('lang-toggle-btn').addEventListener('click', switchLanguage);
@@ -560,8 +565,8 @@
                 updatePrice(15, defaultButton, 'clover_1_4');
             }
             
-            addProductLine();
-            switchLanguage(); 
+            addProductLine(); // Add an initial product line to the form
+            applyLanguageContent(); // Apply Arabic content initially
         });
     </script>
 </body>
