@@ -6,16 +6,17 @@
     <title>عروض عسل البيت</title>
 
     <!-- Open Graph Meta Tags for WhatsApp/Social Media Previews -->
+    <!-- هذه العلامات تخبر واتساب والمنصات الاجتماعية الأخرى كيف تعرض معاينة لصفحتك عند مشاركة الرابط -->
     <meta property="og:title" content="عسل البيت: عسل مصري أصيل وعروض الافتتاح الخيالية!">
     <meta property="og:description" content="اكتشفوا أجود أنواع العسل الطبيعي من مناحلنا مباشرة! توصيل مجاني وعروض حصرية لفترة محدودة. اطلب الآن!">
-    <meta property="og:image" content="https://i.imgur.com/UgJ8uU4.jpeg"> <!-- Link to Arabic logo -->
-    <meta property="og:image:width" content="400"> <!-- Adjust based on logo dimensions if known, otherwise common size -->
-    <meta property="og:image:height" content="400"> <!-- Adjust based on logo dimensions if known, otherwise common size -->
-    <meta property="og:url" content="https://mina-mohsen.github.io/home-honey-orders/">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ar_AR"> <!-- Specify Arabic locale -->
-    <meta property="og:locale:alternate" content="en_US"> <!-- Indicate English alternate -->
-    <!-- End Open Graph Meta Tags -->
+    <meta property="og:image" content="https://i.imgur.com/UgJ8uU4.jpeg"> <!-- رابط الشعار العربي ليظهر في المعاينة -->
+    <meta property="og:image:width" content="400"> <!-- عرض الصورة بالبكسل -->
+    <meta property="og:image:height" content="400"> <!-- ارتفاع الصورة بالبكسل -->
+    <meta property="og:url" content="https://mina-mohsen.github.io/home-honey-orders/"> <!-- رابط صفحتك الأساسي -->
+    <meta property="og:type" content="website"> <!-- نوع المحتوى (موقع ويب) -->
+    <meta property="og:locale" content="ar_AR"> <!-- تحديد اللغة العربية كلغة أساسية للمعاينة -->
+    <meta property="og:locale:alternate" content="en_US"> <!-- الإشارة إلى وجود نسخة إنجليزية بديلة -->
+    <!-- نهاية علامات Open Graph -->
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,10 +92,10 @@
             
             <div id="clover-honey-card" class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105">
                 <div id="clover-image-container" class="h-64 flex items-center justify-center p-4">
-                     <img src="https://i.imgur.com/SnaxfBv.jpeg" alt="عسل البرسيم الذهبي بالشمع الطبيعي الفاخر" class="max-w-full max-h-full object-contain" id="clover-honey-image">
+                     <img src="https://i.imgur.com/SnaxfBv.jpeg" alt="عسل نحل طبيعي بالشمع الفاخر" class="max-w-full max-h-full object-contain" id="clover-honey-image">
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-bold honey-text-dark mb-2" id="clover-honey-title">عسل البرسيم الذهبي بالشمع الطبيعي الفاخر</h3>
+                    <h3 class="text-2xl font-bold honey-text-dark mb-2" id="clover-honey-title">عسل نحل طبيعي بالشمع الفاخر</h3>
                     <p class="honey-text-light mb-4 flex-grow" id="clover-honey-description">عسل طبيعي فاخر، يأتيكم مباشرة من المنحل مع الشمع، ليضمن لكم تجربة فريدة ونكهة غنية أصيلة.</p>
                     
                     <div class="mb-4">
@@ -187,22 +188,22 @@
     <script>
         const productsData = {
             "clover_1_4": {
-                ar: "عسل البرسيم الذهبي بالشمع الطبيعي الفاخر - ¼ كيلو",
-                en: "Premium Clover Honey with Natural Comb - ¼ KG",
+                ar: "عسل نحل طبيعي بالشمع الفاخر - ¼ كيلو",
+                en: "Natural Honey with Natural Comb - ¼ KG",
                 price: 15,
                 img: "https://i.imgur.com/SnaxfBv.jpeg",
                 imgContainerClass: "h-64"
             },
             "clover_1_2": {
-                ar: "عسل البرسيم الذهبي بالشمع الطبيعي الفاخر - ½ كيلو",
-                en: "Premium Clover Honey with Natural Comb - ½ KG",
+                ar: "عسل نحل طبيعي بالشمع الفاخر - ½ كيلو",
+                en: "Natural Honey with Natural Comb - ½ KG",
                 price: 30,
                 img: "https://i.imgur.com/Qxh0HMN.jpeg",
                 imgContainerClass: "h-72"
             },
             "clover_1": {
-                ar: "عسل البرسيم الذهبي بالشمع الطبيعي الفاخر - 1 كيلو",
-                en: "Premium Clover Honey with Natural Comb - 1 KG",
+                ar: "عسل نحل طبيعي بالشمع الفاخر - 1 كيلو",
+                en: "Natural Honey with Natural Comb - 1 KG",
                 price: 60,
                 img: "https://i.imgur.com/EIQo9B1.jpeg",
                 imgContainerClass: "h-80"
@@ -228,7 +229,7 @@
                     line1: "🎉 بمناسبة الافتتاح... عروض خيالية وتوصيل مجاني 🎉",
                     line2: "لفترة محدودة! لا تفوت الفرصة!"
                 },
-                cloverHoneyTitle: "عسل البرسيم الذهبي بالشمع الطبيعي الفاخر",
+                cloverHoneyTitle: "عسل نحل طبيعي بالشمع الفاخر", // Updated
                 cloverHoneyDescription: "عسل طبيعي فاخر، يأتيكم مباشرة من المنحل مع الشمع، ليضمن لكم تجربة فريدة ونكهة غنية أصيلة.",
                 chooseSizeText: "اختر الحجم:",
                 sizeOptions: {
@@ -284,7 +285,7 @@
                     line1: "🎉 Grand Opening Special! Unbeatable Prices & FREE Home Delivery 🎉",
                     line2: "For a Limited Time! Don't Miss Out!"
                 },
-                cloverHoneyTitle: "Premium Golden Clover Honey with Natural Comb",
+                cloverHoneyTitle: "Natural Honey with Natural Comb", // Updated
                 cloverHoneyDescription: "Luxurious natural clover honey, delivered directly from the apiary with natural comb, ensuring a unique experience and rich authentic flavor.",
                 chooseSizeText: "Choose Size:",
                 sizeOptions: {
@@ -550,11 +551,6 @@
         function sendInquiry() {
             const message = content[currentLang].inquiryMessage;
             window.open(`https://wa.me/971568326116?text=${encodeURIComponent(message)}`, '_blank');
-        }
-
-        function switchLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            applyLanguageContent(); // Call the function to apply content for the new language
         }
 
         document.getElementById('lang-toggle-btn').addEventListener('click', switchLanguage);
