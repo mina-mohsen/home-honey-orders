@@ -83,6 +83,8 @@
             <p class="text-lg honey-text-light mt-2 italic" id="slogan">من بيتنا لبيتك... عسل طبيعي مضمون من المنحل مباشرة 🐝</p>
         </header>
 
+        <!-- Removed Image Carousel Section - تم إزالة قسم معرض الصور -->
+
         <div class="bg-amber-100 border-r-4 border-amber-500 text-amber-800 p-4 rounded-lg shadow-md text-center mb-10">
             <h2 class="text-2xl font-bold" id="offer-banner-title-line1">🎉 بمناسبة الافتتاح... عروض خيالية وتوصيل مجاني 🎉</h2>
             <p class="text-xl font-semibold mt-2" id="offer-banner-title-line2">لفترة محدودة! لا تفوت الفرصة!</p>
@@ -188,22 +190,22 @@
     <script>
         const productsData = {
             "clover_1_4": {
-                ar: "عسل نحل طبيعي بالشمع الفاخر - ¼ كيلو",
-                en: "Natural Honey with Natural Comb - ¼ KG",
+                ar: "عسل نحل طبيعي بالشمع الفاخر - ¼ كيلو", // Updated
+                en: "Natural Honey with Natural Comb - ¼ KG", // Updated
                 price: 15,
                 img: "https://i.imgur.com/SnaxfBv.jpeg",
                 imgContainerClass: "h-64"
             },
             "clover_1_2": {
-                ar: "عسل نحل طبيعي بالشمع الفاخر - ½ كيلو",
-                en: "Natural Honey with Natural Comb - ½ KG",
+                ar: "عسل نحل طبيعي بالشمع الفاخر - ½ كيلو", // Updated
+                en: "Natural Honey with Natural Comb - ½ KG", // Updated
                 price: 30,
                 img: "https://i.imgur.com/Qxh0HMN.jpeg",
                 imgContainerClass: "h-72"
             },
             "clover_1": {
-                ar: "عسل نحل طبيعي بالشمع الفاخر - 1 كيلو",
-                en: "Natural Honey with Natural Comb - 1 KG",
+                ar: "عسل نحل طبيعي بالشمع الفاخر - 1 كيلو", // Updated
+                en: "Natural Honey with Natural Comb - 1 KG", // Updated
                 price: 60,
                 img: "https://i.imgur.com/EIQo9B1.jpeg",
                 imgContainerClass: "h-80"
@@ -259,7 +261,7 @@
                 placeholderDeliveryLocation: "المدينة، المنطقة، العنوان بالتفصيل",
                 labelProductSelect: "اختر المنتج:",
                 labelQuantityInput: "الكمية:",
-                orderTotalPrefix: "الإجمالي:",
+                0: "الإجمالي:",
                 sendOrderBtn: "إرسال الطلب عبر واتساب",
                 sendInquiryBtn: "استفسار عام عبر واتساب",
                 addProductBtn: "+ أضف منتج آخر",
@@ -551,6 +553,11 @@
         function sendInquiry() {
             const message = content[currentLang].inquiryMessage;
             window.open(`https://wa.me/971568326116?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function switchLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            applyLanguageContent(); // Call the function to apply content for the new language
         }
 
         document.getElementById('lang-toggle-btn').addEventListener('click', switchLanguage);
