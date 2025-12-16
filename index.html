@@ -6,35 +6,21 @@
     <title>عروض بيت العسل</title>
 
     <!-- Open Graph Meta Tags for WhatsApp/Social Media Previews -->
-    <!-- هذه العلامات تخبر واتساب والمنصات الاجتماعية الأخرى كيف تعرض معاينة لصفحتك عند مشاركة الرابط -->
     <meta property="og:title" content="بيت العسل: عسل مصري أصيل وعروض الافتتاح الخيالية!">
-    <meta property="og:description" content="اكتشفوا أجود أنواع العسل الطبيعي من مناحلنا مباشرة! توصيل مجاني وعروض حصرية لفترة محدودة. اطلب الآن!">
-    <meta property="og:image" content="https://imgur.com/jE0zgBa.jpge"> <!-- رابط الشعار العربي ليظهر في المعاينة -->
-    <meta property="og:image:width" content="400"> <!-- عرض الصورة بالبكسل -->
-    <meta property="og:image:height" content="400"> <!-- ارتفاع الصورة بالبكسل -->
-    <meta property="og:url" content="https://mina-mohsen.github.io/home-honey-orders/"> <!-- رابط صفحتك الأساسي -->
-    <meta property="og:type" content="website"> <!-- نوع المحتوى (موقع ويب) -->
-    <meta property="og:locale" content="ar_AR"> <!-- تحديد اللغة العربية كلغة أساسية للمعاينة -->
-    <meta property="og:locale:alternate" content="en_US"> <!-- الإشارة إلى وجود نسخة إنجليزية بديلة -->
-    <!-- نهاية علامات Open Graph -->
+    <meta property="og:description" content="اكتشفوا أجود أنواع العسل الطبيعي من مناحلنا مباشرة! عروض حصرية لفترة محدودة. اطلب الآن!">
+    <meta property="og:image" content="https://imgur.com/jE0zgBa.jpge">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta property="og:url" content="https://mina-mohsen.github.io/home-honey-orders/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:locale:alternate" content="en_US">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Honey -->
-    <!-- Application Structure Plan: A single-page, top-to-bottom layout is used for its simplicity and mobile-first approach. The structure flows from a Hero section with the logo to establish brand identity, into an announcement for the special offers (now including free delivery), followed by interactive product cards. A new "Place Your Order" section is added below the product cards, allowing users to select products and quantity, and then send a pre-filled order message via WhatsApp. A separate button for general inquiries is also included. This design guides the user logically from discovering the products to a clear call-to-action (ordering via WhatsApp) in a prominent footer, creating a direct and seamless customer journey. -->
-    <!-- Visualization & Content Choices: 
-        - Report Info: Tiered pricing for Clover Honey. -> Goal: Allow comparison and selection. -> Presentation: Interactive Card. -> Interaction: Size selection buttons dynamically update the displayed price and image. The image container size also changes to visually represent the size difference. -> Justification: This is more engaging and clearer than a static list, and provides strong visual confirmation of the selected product size. -> Library/Method: Vanilla JavaScript.
-        - Report Info: Integrated Health Offer. -> Goal: Clearly inform about the package contents. -> Presentation: Static Card with Unicode icons (🍯, 🟠, 👑) for visual clarity. -> Interaction: None. -> Justification: Icons make the list scannable and easy to digest. -> Library/Method: HTML/Tailwind CSS.
-        - Report Info: Contact Number. -> Goal: Generate sales leads. -> Presentation: A clickable button. -> Interaction: Opens a pre-filled WhatsApp chat. -> Justification: This provides a frictionless, one-click method for customers to place an order. -> Library/Method: HTML `<a>` tag.
-        - New: Order Form Fields (Name, Phone, Location, Product, Quantity). -> Goal: Collect order details directly from the customer. -> Presentation: Standard HTML input fields and a select dropdown, now supporting multiple dynamic rows. -> Interaction: User input, dynamic adding/removing of product lines, dynamic total price calculation. -> Justification: Simplifies the ordering process for the customer and provides structured data for the business, allowing multi-item orders. -> Library/Method: HTML, Vanilla JavaScript.
-        - New: WhatsApp Order Button. -> Goal: Send structured order data. -> Presentation: Button. -> Interaction: Gathers form data from all product lines, formats it into a WhatsApp message, and opens WhatsApp. -> Justification: Automates order submission and reduces manual errors. -> Library/Method: HTML `<a>` tag, Vanilla JavaScript.
-        - New: WhatsApp Inquiry Button. -> Goal: Provide a quick contact method for general questions. -> Presentation: Button. -> Interaction: Opens WhatsApp with a generic inquiry message. -> Justification: Offers an alternative contact method without requiring specific order details. -> Library/Method: HTML `<a>` tag.
-        - Updated: Free Delivery Notice. -> Goal: Make it more prominent and appealing. -> Presentation: Integrated into the main offer banner at the top. -> Justification: Ensures immediate visibility for the key selling point. -> Library/Method: HTML, JavaScript content update.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Cairo', sans-serif;
@@ -44,19 +30,19 @@
             font-family: 'Inter', sans-serif;
         }
         .honey-accent {
-            color: #D97706; /* Amber-600 */
+            color: #D97706;
         }
         .honey-bg-accent {
-            background-color: #FBBF24; /* Amber-400 */
+            background-color: #FBBF24;
         }
         .honey-bg-accent:hover {
-            background-color: #F59E0B; /* Amber-500 */
+            background-color: #F59E0B;
         }
         .honey-text-dark {
-            color: #6B4226; /* Brownish */
+            color: #6B4226;
         }
         .honey-text-light {
-            color: #A16207; /* Amber-700 */
+            color: #A16207;
         }
         .active-size {
             background-color: #6B4226;
@@ -83,16 +69,14 @@
             <p class="text-lg honey-text-light mt-2 italic" id="slogan">من بيتنا لبيتك... عسل طبيعي مضمون من المنحل مباشرة 🐝</p>
         </header>
 
-        <!-- Removed Image Carousel Section - تم إزالة قسم معرض الصور -->
-
         <div class="bg-amber-100 border-r-4 border-amber-500 text-amber-800 p-4 rounded-lg shadow-md text-center mb-10">
-            <!-- UPDATED BANNER: Removed "وتوصيل مجاني" / "FREE Home Delivery" -->
             <h2 class="text-2xl font-bold" id="offer-banner-title-line1">🎉 بمناسبة الافتتاح... عروض خيالية 🎉</h2>
             <p class="text-xl font-semibold mt-2" id="offer-banner-title-line2">لفترة محدودة! لا تفوت الفرصة!</p>
         </div>
 
         <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
             
+            <!-- Product 1: Clover Honey with Comb (Tiered Pricing) -->
             <div id="clover-honey-card" class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105">
                 <div id="clover-image-container" class="h-64 flex items-center justify-center p-4">
                      <img src="https://i.imgur.com/SnaxfBv.jpeg" alt="عسل نحل طبيعي بالشمع الفاخر" class="max-w-full max-h-full object-contain" id="clover-honey-image">
@@ -104,25 +88,22 @@
                     <div class="mb-4">
                         <p class="text-lg honey-text-dark mb-2" id="choose-size-text">اختر الحجم:</p>
                         <div class="flex justify-center gap-2">
-                            <!-- UPDATED price in onclick to 25 -->
                             <button onclick="updatePrice(25, this, 'clover_1_4')" class="size-btn active-size border-2 border-gray-300 rounded-full px-4 py-2 text-sm font-bold transition" data-ar="¼ كيلو" data-en="¼ KG">¼ كيلو</button>
-                            <!-- UPDATED price in onclick to 45 -->
                             <button onclick="updatePrice(45, this, 'clover_1_2')" class="size-btn border-2 border-gray-300 rounded-full px-4 py-2 text-sm font-bold transition" data-ar="½ كيلو" data-en="½ KG">½ كيلو</button>
-                            <!-- UPDATED price in onclick to 75 -->
-                            <button onclick="updatePrice(75, this, 'clover_1')" class="size-btn border-2 border-gray-300 rounded-full px-4 py-2 text-sm font-bold transition" data-ar="1 كيلو" data-en="1 KG">1 كيلو</button>
+                            <button onclick="updatePrice(85, this, 'clover_1')" class="size-btn border-2 border-gray-300 rounded-full px-4 py-2 text-sm font-bold transition" data-ar="1 كيلو" data-en="1 KG">1 كيلو</button>
                         </div>
                     </div>
                     
                     <div class="text-center mt-auto">
-                        <!-- UPDATED default displayed price to 25 -->
                         <p class="text-4xl font-bold honey-accent" id="honey-price">25 درهم</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Product 2: Ultimate Health Offer -->
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105">
                  <div id="health-offer-image-container" class="h-80 flex items-center justify-center p-4">
-                    <img src="https://i.imgur.com/angpud2.jpeg" alt="عرض الطاقة القصوى والصحة الشاملة" class="max-w-full max-h-full object-contain">
+                    <img src="https://imgur.com/4rvkPbc.jpge" alt="عرض الطاقة القصوى والصحة الشاملة" class="max-w-full max-h-full object-contain">
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
                     <h3 class="text-2xl font-bold honey-text-dark mb-2" id="health-offer-title">عرض الطاقة القصوى والصحة الشاملة</h3>
@@ -135,8 +116,31 @@
                     </ul>
                     
                     <div class="text-center mt-auto">
-                        <!-- UPDATED static price display to 75 -->
-                        <p class="text-4xl font-bold honey-accent" id="health-offer-price">75 درهم</p>
+                        <p class="text-4xl font-bold honey-accent" id="health-offer-price">100 درهم</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Honeycomb Natural Honey -->
+             <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105 md:col-span-2 lg:col-span-1">
+                 <div class="h-80 flex items-center justify-center p-4 bg-gray-50">
+                    <!-- Updated honeycomb image with new link -->
+                    <img src="https://imgur.com/A4JgtWb.jpge" alt="شهد العسل الطبيعي" class="max-w-full max-h-full object-contain rounded-lg">
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <h3 class="text-2xl font-bold honey-text-dark mb-2" id="honeycomb-wax-title">شهد العسل</h3>
+                    <p class="honey-text-light mb-4 flex-grow" id="honeycomb-wax-description">قرص العسل الطبيعي الذي يبنيه النحل من شمع العسل، ويحتوي على العسل الخام المختوم مادة طبيعية غنية بالفوائد الصحية</p>
+                    
+                    <div class="mb-4">
+                        <p class="text-lg honey-text-dark mb-2">اختر الحجم:</p>
+                        <div class="flex justify-center gap-2">
+                            <button onclick="updateHoneycombPrice(50, this)" class="honeycomb-size-btn active-size border-2 border-gray-300 rounded-full px-4 py-2 text-sm font-bold transition" data-ar="½ كيلو" data-en="½ KG">½ كيلو</button>
+                            <button onclick="updateHoneycombPrice(90, this)" class="honeycomb-size-btn border-2 border-gray-300 rounded-full px-4 py-2 text-sm font-bold transition" data-ar="1 كيلو" data-en="1 KG">1 كيلو</button>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-auto">
+                        <p class="text-4xl font-bold honey-accent" id="honeycomb-wax-price">50 درهم</p>
                     </div>
                 </div>
             </div>
@@ -187,7 +191,6 @@
         <footer class="text-center mt-12 py-6">
             <a href="https://wa.me/971568326116?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%B9%D8%B3%D9%84%20%D8%A7%D9%84%D8%A8%D9%8A%D8%AA%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%B7%D9%84%D8%A8"
                class="inline-block honey-bg-accent text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-lg hidden" id="whatsapp-btn-text-old">
-                📲 اطلب الآن عبر واتساب
             </a>
         </footer>
 
@@ -198,37 +201,43 @@
             "clover_1_4": {
                 ar: "عسل نحل طبيعي بالشمع الفاخر - ¼ كيلو",
                 en: "Natural Honey with Natural Comb - ¼ KG",
-                // START PRICE EDIT: 1/4 kilo 25 aed
                 price: 25,
-                // END PRICE EDIT
                 img: "https://i.imgur.com/SnaxfBv.jpeg",
                 imgContainerClass: "h-64"
             },
             "clover_1_2": {
                 ar: "عسل نحل طبيعي بالشمع الفاخر - ½ كيلو",
                 en: "Natural Honey with Natural Comb - ½ KG",
-                // START PRICE EDIT: 1/2 kilo 45 aed
                 price: 45,
-                // END PRICE EDIT
                 img: "https://i.imgur.com/Qxh0HMN.jpeg",
                 imgContainerClass: "h-72"
             },
             "clover_1": {
                 ar: "عسل نحل طبيعي بالشمع الفاخر - 1 كيلو",
                 en: "Natural Honey with Natural Comb - 1 KG",
-                // START PRICE EDIT: 1 kilo 75 aed
-                price: 75,
-                // END PRICE EDIT
+                price: 85,
                 img: "https://i.imgur.com/EIQo9B1.jpeg",
                 imgContainerClass: "h-80"
             },
             "health_offer": {
                 ar: "عرض الطاقة القصوى والصحة الشاملة",
                 en: "Ultimate Vitality & Wellness Honey Blend",
-                // START PRICE EDIT: Ultimate Energy & Holistic Health Offer 75 aed
-                price: 75,
-                // END PRICE EDIT
-                img: "https://i.imgur.com/angpud2.jpeg",
+                price: 100,
+                img: "https://imgur.com/4rvkPbc.jpge",
+                imgContainerClass: "h-80"
+            },
+            "honeycomb_half": {
+                ar: "شهد العسل - ½ كيلو",
+                en: "Natural Honeycomb - ½ KG",
+                price: 50,
+                img: "https://imgur.com/A4JgtWb.jpge",
+                imgContainerClass: "h-80"
+            },
+            "honeycomb_full": {
+                ar: "شهد العسل - 1 كيلو",
+                en: "Natural Honeycomb - 1 KG",
+                price: 90,
+                img: "https://imgur.com/A4JgtWb.jpge",
                 imgContainerClass: "h-80"
             }
         };
@@ -240,7 +249,6 @@
                 slogan: "من بيتنا لبيتك... عسل طبيعي مضمون من المنحل مباشرة 🐝",
                 logoUrl: "https://imgur.com/jE0zgBa.jpge",
                 logoAlt: "شعار بيت العسل",
-                // UPDATED BANNER: Removed "وتوصيل مجاني"
                 offerBannerTitle: {
                     line1: "🎉 بمناسبة الافتتاح... عروض خيالية 🎉",
                     line2: "لفترة محدودة! لا تفوت الفرصة!"
@@ -260,12 +268,10 @@
                     "<span>🟠</span> 20 جم حبوب لقاح طبيعية",
                     "<span>👑</span> 10 جم غذاء ملكات النحل الأصلي"
                 ],
-                // UPDATED health offer price to 75
-                healthOfferPrice: "75 درهم",
+                healthOfferPrice: "100 درهم",
                 orderQuantityInfo: "📦 الكمية محدودة – اطلب الآن!",
                 whatsappBtnText: "📲 اطلب الآن عبر واتساب",
                 currency: "درهم",
-                orderFormTitle: "أطلب الآن!", 
                 orderFormSubtitle: "املأ النموذج أدناه لإرسال طلبك مباشرة عبر واتساب.",
                 labelCustomerName: "اسم العميل:",
                 placeholderCustomerName: "الاسم كاملاً",
@@ -275,12 +281,12 @@
                 placeholderDeliveryLocation: "المدينة، المنطقة، العنوان بالتفصيل",
                 labelProductSelect: "اختر المنتج:",
                 labelQuantityInput: "الكمية:",
-                0: "الإجمالي:",
+                orderTotalPrefix: "الإجمالي:",
                 sendOrderBtn: "إرسال الطلب عبر واتساب",
                 sendInquiryBtn: "استفسار عام عبر واتساب",
                 addProductBtn: "+ أضف منتج آخر",
                 removeProductBtn: "إزالة",
-                orderMessageHeader: "طلب جديد من موقع بيت العسل:", 
+                orderMessageHeader: "طلب جديد من موقع بيت العسل:",
                 orderMessageCustomerName: "الاسم:",
                 orderMessageCustomerPhone: "الهاتف:",
                 orderMessageDeliveryLocation: "الموقع:",
@@ -288,21 +294,20 @@
                 orderMessageProduct: "المنتج:",
                 orderMessageQuantity: "الكمية:",
                 orderMessageTotal: "الإجمالي:",
-                inquiryMessage: "مرحباً بيت العسل، لدي استفسار عام.", 
+                inquiryMessage: "مرحباً بيت العسل، لدي استفسار عام.",
                 formValidationMessage: "الرجاء ملء جميع الحقول المطلوبة واختيار منتج واحد على الأقل بكمية صحيحة."
             },
             en: {
-                title: "Honey House Offers", 
-                companyName: "Honey House", 
+                title: "Honey House Offers",
+                companyName: "Honey House",
                 slogan: "From our home to yours... Guaranteed natural honey directly from the apiary 🐝",
                 logoUrl: "https://imgur.com/jE0zgBa.jpge",
-                logoAlt: "Honey House Logo", 
-                // UPDATED BANNER: Removed "& FREE Home Delivery"
+                logoAlt: "Honey House Logo",
                 offerBannerTitle: {
-                    line1: "🎉 Grand Opening Special! Unbeatable Prices! 🎉",
+                    line1: "🎉 Grand Opening Special! Unbeatable Prices 🎉",
                     line2: "For a Limited Time! Don't Miss Out!"
                 },
-                cloverHoneyTitle: "Natural Honey with Natural Comb", 
+                cloverHoneyTitle: "Natural Honey with Natural Comb",
                 cloverHoneyDescription: "Luxurious natural clover honey, delivered directly from the apiary with natural comb, ensuring a unique experience and rich authentic flavor.",
                 chooseSizeText: "Choose Size:",
                 sizeOptions: {
@@ -317,12 +322,10 @@
                     "<span>🟠</span> 20g Natural Bee Pollen",
                     "<span>👑</span> 10g Original Royal Jelly"
                 ],
-                // UPDATED health offer price to 75
-                healthOfferPrice: "75 AED",
+                healthOfferPrice: "100 AED",
                 orderQuantityInfo: "📦 Limited quantity – Order Now!",
                 whatsappBtnText: "📲 Order Now via WhatsApp",
                 currency: "AED",
-                orderFormTitle: "Order Now!",
                 orderFormSubtitle: "Fill out the form below to send your order directly via WhatsApp.",
                 labelCustomerName: "Customer Name:",
                 placeholderCustomerName: "Full Name",
@@ -337,7 +340,7 @@
                 sendInquiryBtn: "General Inquiry via WhatsApp",
                 addProductBtn: "+ Add Another Product",
                 removeProductBtn: "Remove",
-                orderMessageHeader: "New Order from Honey House website:", 
+                orderMessageHeader: "New Order from Honey House website:",
                 orderMessageCustomerName: "Name:",
                 orderMessageCustomerPhone: "Phone:",
                 orderMessageDeliveryLocation: "Location:",
@@ -345,14 +348,25 @@
                 orderMessageProduct: "Product:",
                 orderMessageQuantity: "Quantity:",
                 orderMessageTotal: "Total:",
-                inquiryMessage: "Hello Honey House, I have a general inquiry.", 
+                inquiryMessage: "Hello Honey House, I have a general inquiry.",
                 formValidationMessage: "Please fill in all required fields and select at least one product with a valid quantity."
             }
         };
 
-        let currentLang = 'ar'; // Default language set to Arabic
+        let currentLang = 'ar';
 
-        // Function to apply content based on currentLang
+        function updateHoneycombPrice(price, selectedButton) {
+            const currency = content[currentLang].currency;
+            document.getElementById('honeycomb-wax-price').innerText = `${price} ${currency}`;
+            
+            const buttons = document.querySelectorAll('.honeycomb-size-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active-size');
+            });
+            
+            selectedButton.classList.add('active-size');
+        }
+
         function applyLanguageContent() {
             const html = document.documentElement;
             const body = document.body;
@@ -377,6 +391,29 @@
             document.getElementById('clover-honey-description').innerText = content[currentLang].cloverHoneyDescription;
             document.getElementById('choose-size-text').innerText = content[currentLang].chooseSizeText;
 
+            // Update honeycomb product information
+            if (document.getElementById('honeycomb-wax-title')) {
+                document.getElementById('honeycomb-wax-title').innerText = currentLang === 'ar' ? 'شهد العسل' : 'Natural Honeycomb';
+                document.getElementById('honeycomb-wax-description').innerText = currentLang === 'ar' 
+                    ? "قرص العسل الطبيعي الذي يبنيه النحل من شمع العسل، ويحتوي على العسل الخام المختوم مادة طبيعية غنية بالفوائد الصحية"
+                    : "Natural honeycomb built by bees from beeswax, containing sealed raw honey - a natural substance rich in health benefits";
+                
+                // Update size buttons text
+                const honeycombSizeButtons = document.querySelectorAll('.honeycomb-size-btn');
+                honeycombSizeButtons.forEach(button => {
+                    const arText = button.getAttribute('data-ar');
+                    const enText = button.getAttribute('data-en');
+                    button.innerText = currentLang === 'ar' ? arText : enText;
+                });
+                
+                // Update price display
+                const activeHoneycombButton = document.querySelector('.honeycomb-size-btn.active-size');
+                if (activeHoneycombButton) {
+                    const price = activeHoneycombButton.getAttribute('onclick').match(/\d+/)[0];
+                    document.getElementById('honeycomb-wax-price').innerText = `${price} ${content[currentLang].currency}`;
+                }
+            }
+
             const sizeButtons = document.querySelectorAll('#clover-honey-card .size-btn');
             sizeButtons.forEach(button => {
                 const arText = button.getAttribute('data-ar');
@@ -390,8 +427,7 @@
             const healthOfferList = document.getElementById('health-offer-list');
             healthOfferList.innerHTML = content[currentLang].healthOfferList.map(item => `<li class="flex items-center justify-start gap-3">${item}</li>`).join('');
 
-            // This ensures the displayed price is updated if the language changes
-            document.getElementById('health-offer-price').innerText = `${productsData.health_offer.price} ${content[currentLang].currency}`;
+            document.getElementById('health-offer-price').innerText = content[currentLang].healthOfferPrice;
 
             document.getElementById('order-quantity-info').innerText = content[currentLang].orderQuantityInfo;
             document.getElementById('order-form-subtitle').innerText = content[currentLang].orderFormSubtitle;
@@ -428,16 +464,10 @@
             
             const activeSizeButton = document.querySelector('#clover-honey-card .size-btn.active-size');
             if (activeSizeButton) {
-                // Read the product key from the onclick attribute to get the correct new price
-                const productKeyMatch = activeSizeButton.onclick.toString().match(/'([^']+)'/);
-                if (productKeyMatch && productKeyMatch[1]) {
-                    const productKey = productKeyMatch[1];
-                    updatePrice(productsData[productKey].price, activeSizeButton, productKey);
-                }
+                const productKey = activeSizeButton.onclick.toString().match(/'([^']+)'/)[1];
+                document.getElementById('honey-price').innerText = `${productsData[productKey].price} ${content[currentLang].currency}`;
             } else {
-                // Fallback to update the price display for the default selection
-                const defaultKey = 'clover_1_4';
-                document.getElementById('honey-price').innerText = `${productsData[defaultKey].price} ${content[currentLang].currency}`;
+                document.getElementById('honey-price').innerText = `${productsData.clover_1_4.price} ${content[currentLang].currency}`;
             }
 
             updateOrderFormPrice();
@@ -471,7 +501,7 @@
         }
 
         function createProductOptionElements() {
-            let optionsHtml = '';
+            let optionsHtml = '<option value="" disabled selected>---</option>';
             for (const key in productsData) {
                 optionsHtml += `<option value="${key}">${productsData[key][currentLang]}</option>`;
             }
@@ -515,7 +545,7 @@
                 const quantityInput = line.querySelector('.quantity-input-item');
 
                 const selectedProductKey = productSelect.value;
-                const quantity = parseInt(quantityInput.value);
+                const quantity = parseInt(quantityInput.value) > 0 ? parseInt(quantityInput.value) : 0;
 
                 if (selectedProductKey && quantity > 0 && productsData[selectedProductKey]) {
                     const unitPrice = productsData[selectedProductKey].price;
@@ -533,13 +563,14 @@
             const productLines = document.querySelectorAll('.product-line');
 
             if (!customerName || !customerPhone || !deliveryLocation || productLines.length === 0) {
-                // Use custom modal or message instead of alert
-                console.error(content[currentLang].formValidationMessage);
+                alert(content[currentLang].formValidationMessage);
                 return;
             }
 
             let productsSummary = '';
             let allProductsValid = true;
+            let orderTotal = 0;
+
             productLines.forEach((line, index) => {
                 const productSelect = line.querySelector('.product-select-item');
                 const quantityInput = line.querySelector('.quantity-input-item');
@@ -551,24 +582,26 @@
                     allProductsValid = false;
                     return;
                 }
+                const unitPrice = productsData[selectedProductKey].price;
                 const productName = productsData[selectedProductKey][currentLang];
-                productsSummary += `${index + 1}. ${content[currentLang].orderMessageProduct} ${productName}, ${content[currentLang].orderMessageQuantity} ${quantity}\n`;
+                
+                productsSummary += `${index + 1}. ${content[currentLang].orderMessageProduct} ${productName} (${unitPrice} ${content[currentLang].currency}), ${content[currentLang].orderMessageQuantity} ${quantity}\n`;
+                orderTotal += unitPrice * quantity;
             });
 
             if (!allProductsValid) {
-                // Use custom modal or message instead of alert
-                console.error(content[currentLang].formValidationMessage);
+                alert(content[currentLang].formValidationMessage);
                 return;
             }
 
-            const total = document.getElementById('order-total-price').innerText.replace(content[currentLang].orderTotalPrefix + ' ', '');
+            const totalMessage = `${orderTotal} ${content[currentLang].currency}`;
 
             const message = `${content[currentLang].orderMessageHeader}\n\n` +
                             `${content[currentLang].orderMessageCustomerName} ${customerName}\n` +
                             `${content[currentLang].orderMessageCustomerPhone} ${customerPhone}\n` +
                             `${content[currentLang].orderMessageDeliveryLocation} ${deliveryLocation}\n\n` +
                             `${content[currentLang].orderMessageProductsList}\n${productsSummary}\n` +
-                            `${content[currentLang].orderMessageTotal} ${total}`;
+                            `${content[currentLang].orderMessageTotal} ${totalMessage}`;
             
             window.open(`https://wa.me/971568326116?text=${encodeURIComponent(message)}`, '_blank');
         }
@@ -580,7 +613,7 @@
 
         function switchLanguage() {
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            applyLanguageContent(); // Call the function to apply content for the new language
+            applyLanguageContent();
         }
 
         document.getElementById('lang-toggle-btn').addEventListener('click', switchLanguage);
@@ -588,12 +621,17 @@
         document.addEventListener('DOMContentLoaded', () => {
             const defaultButton = document.querySelector('#clover-honey-card .size-btn[data-ar="¼ كيلو"]');
             if (defaultButton) {
-                // Set the default price to 25 based on the updated productsData
                 updatePrice(productsData['clover_1_4'].price, defaultButton, 'clover_1_4');
             }
             
-            addProductLine(); // Add an initial product line to the form
-            applyLanguageContent(); // Apply Arabic content initially
+            // Set default honeycomb button to ½ kg
+            const defaultHoneycombButton = document.querySelector('.honeycomb-size-btn[data-ar="½ كيلو"]');
+            if (defaultHoneycombButton) {
+                updateHoneycombPrice(50, defaultHoneycombButton);
+            }
+            
+            addProductLine();
+            applyLanguageContent();
         });
     </script>
 </body>
