@@ -67,6 +67,13 @@
             <img src="https://imgur.com/jE0zgBa.jpge" alt="شعار بيت العسل" class="w-40 h-40 mx-auto mb-4 rounded-full shadow-lg" id="company-logo">
             <h1 class="text-4xl font-bold honey-text-dark" id="company-name">بيت العسل</h1>
             <p class="text-lg honey-text-light mt-2 italic" id="slogan">من بيتنا لبيتك... عسل طبيعي مضمون من المنحل مباشرة 🐝</p>
+            
+            <!-- جملة التوصيل لكل الامارات -->
+            <div class="mt-4">
+                <p class="text-xl font-bold honey-accent bg-amber-50 inline-block px-4 py-2 rounded-full border-2 border-amber-300" id="delivery-text">
+                    🚚 يوجد توصيل لكل الإمارات
+                </p>
+            </div>
         </header>
 
         <div class="bg-amber-100 border-r-4 border-amber-500 text-amber-800 p-4 rounded-lg shadow-md text-center mb-10">
@@ -286,6 +293,7 @@
                 slogan: "من بيتنا لبيتك... عسل طبيعي مضمون من المنحل مباشرة 🐝",
                 logoUrl: "https://imgur.com/jE0zgBa.jpge",
                 logoAlt: "شعار بيت العسل",
+                deliveryText: "🚚 يوجد توصيل لكل الإمارات",
                 offerBannerTitle: {
                     line1: "🎉 بمناسبة الافتتاح... عروض خيالية 🎉",
                     line2: "لفترة محدودة! لا تفوت الفرصة!"
@@ -342,6 +350,7 @@
                 slogan: "From our home to yours... Guaranteed natural honey directly from the apiary 🐝",
                 logoUrl: "https://imgur.com/jE0zgBa.jpge",
                 logoAlt: "Honey House Logo",
+                deliveryText: "🚚 Delivery available across all Emirates",
                 offerBannerTitle: {
                     line1: "🎉 Grand Opening Special! Unbeatable Prices 🎉",
                     line2: "For a Limited Time! Don't Miss Out!"
@@ -436,6 +445,9 @@
             companyLogo.alt = content[currentLang].logoAlt;
             document.getElementById('company-name').innerText = content[currentLang].companyName;
             document.getElementById('slogan').innerText = content[currentLang].slogan;
+            
+            // Update delivery text
+            document.getElementById('delivery-text').innerText = content[currentLang].deliveryText;
             
             document.getElementById('offer-banner-title-line1').innerText = content[currentLang].offerBannerTitle.line1;
             document.getElementById('offer-banner-title-line2').innerText = content[currentLang].offerBannerTitle.line2;
