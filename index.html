@@ -85,6 +85,20 @@
             padding: 15px;
             border-radius: 50%;
         }
+        /* Uniform image height for all product cards */
+        .product-image-container {
+            height: 320px; /* Fixed height for consistency */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background-color: #fff;
+        }
+        .product-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -93,16 +107,14 @@
         <header class="text-center mb-8 relative">
             <button id="lang-toggle-btn" class="absolute top-0 right-0 mt-2 ml-2 bg-amber-200 text-amber-800 py-1 px-3 rounded-full text-sm font-bold shadow-md transition hover:bg-amber-300">English</button>
             
-            <!-- شعار بيت العسل الجديد مع خلفية ذهبية -->
             <div class="logo-container">
                 <div class="logo-background"></div>
-                <img src="https://imgur.com/doKxqHM.jpeg" alt="شعار بيت العسل الجديد" class="logo-img" id="company-logo">
+                <img src="https://imgur.com/doKxqHM.jpeg" alt="شعار بيت العسل" class="logo-img" id="company-logo">
             </div>
             
             <h1 class="text-4xl font-bold honey-text-dark" id="company-name">بيت العسل</h1>
             <p class="text-lg honey-text-light mt-2 italic" id="slogan">من بيتنا لبيتك... عسل طبيعي مضمون من المنحل مباشرة 🐝</p>
             
-            <!-- جملة التوصيل لكل الامارات -->
             <div class="mt-4">
                 <p class="text-xl font-bold honey-accent bg-amber-50 inline-block px-4 py-2 rounded-full border-2 border-amber-300" id="delivery-text">
                     🚚 يوجد توصيل لكل الإمارات
@@ -117,10 +129,33 @@
 
         <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
             
-            <!-- Product 1: Clover Honey with Comb (Tiered Pricing) -->
+            <!-- PRODUCT 1: Squeeze Honey (Updated Prices) -->
+            <div id="squeeze-honey-card" class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105">
+                <div class="product-image-container">
+                     <img src="https://imgur.com/vIdADYw.jpeg" alt="عسل طبيعي عبوة اسكويز">
+                </div>
+                <div class="p-6 flex-grow flex flex-col">
+                    <h3 class="text-2xl font-bold honey-text-dark mb-2" id="squeeze-honey-title">عسل طبيعي (عبوة اسكويز)</h3>
+                    <p class="honey-text-light mb-4 flex-grow" id="squeeze-honey-description">عسلنا النقي في عبوة "اسكويز" العصرية. مثالية للاستخدام السريع، تمنحك تحكماً كاملاً بالكمية بدون تنقيط أو فوضى. الحل العملي والأكثر نظافة للتحلية اليومية وفي حقائب الأطفال.</p>
+                    
+                    <div class="mb-4">
+                        <p class="text-lg honey-text-dark mb-2" id="choose-size-squeeze">اختر الحجم:</p>
+                        <div class="flex justify-center gap-2">
+                            <button onclick="updateSqueezePrice(25, this, 'squeeze_1_4')" class="squeeze-size-btn active-size border-2 border-gray-300 rounded-full px-4 py-2 text-sm font-bold transition" data-ar="¼ كيلو" data-en="¼ KG">¼ كيلو</button>
+                            <button onclick="updateSqueezePrice(45, this, 'squeeze_1_2')" class="squeeze-size-btn border-2 border-gray-300 rounded-full px-4 py-2 text-sm font-bold transition" data-ar="½ كيلو" data-en="½ KG">½ كيلو</button>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-auto">
+                        <p class="text-4xl font-bold honey-accent" id="squeeze-honey-price">25 درهم</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT 2: Clover Honey with Comb -->
             <div id="clover-honey-card" class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105">
-                <div id="clover-image-container" class="h-64 flex items-center justify-center p-4">
-                     <img src="https://imgur.com/8ozxEOZ.jpeg" alt="عسل نحل طبيعي بالشمع الفاخر" class="max-w-full max-h-full object-contain" id="clover-honey-image">
+                <div class="product-image-container">
+                     <img src="https://imgur.com/8ozxEOZ.jpeg" alt="عسل نحل طبيعي بالشمع الفاخر" id="clover-honey-image">
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
                     <h3 class="text-2xl font-bold honey-text-dark mb-2" id="clover-honey-title">عسل نحل طبيعي بالشمع الفاخر</h3>
@@ -141,10 +176,10 @@
                 </div>
             </div>
 
-            <!-- Product 2: Ultimate Health Offer -->
+            <!-- PRODUCT 3: Ultimate Health Offer -->
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105">
-                 <div id="health-offer-image-container" class="h-80 flex items-center justify-center p-4">
-                    <img src="https://imgur.com/QCqn0kZ.jpge" alt="عرض الطاقة القصوى والصحة الشاملة" class="max-w-full max-h-full object-contain">
+                 <div class="product-image-container">
+                    <img src="https://imgur.com/QCqn0kZ.jpge" alt="عرض الطاقة القصوى والصحة الشاملة">
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
                     <h3 class="text-2xl font-bold honey-text-dark mb-2" id="health-offer-title">عرض الطاقة القصوى والصحة الشاملة</h3>
@@ -162,10 +197,10 @@
                 </div>
             </div>
 
-            <!-- Product 3: Honeycomb Natural Honey -->
+            <!-- PRODUCT 4: Honeycomb Natural Honey -->
              <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105">
-                 <div class="h-80 flex items-center justify-center p-4 bg-gray-50">
-                    <img src="https://imgur.com/GNhW77E.jpge" alt="شهد العسل الطبيعي" class="max-w-full max-h-full object-contain rounded-lg">
+                 <div class="product-image-container">
+                    <img src="https://imgur.com/GNhW77E.jpge" alt="شهد العسل الطبيعي">
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
                     <h3 class="text-2xl font-bold honey-text-dark mb-2" id="honeycomb-wax-title">شهد العسل</h3>
@@ -185,14 +220,14 @@
                 </div>
             </div>
 
-            <!-- NEW PRODUCT 4: Royal Nuts Honey - في صف واحد مع شهد العسل -->
+            <!-- PRODUCT 5: Royal Nuts Honey -->
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105">
-                <div class="h-80 flex items-center justify-center p-4 bg-amber-50">
-                    <img src="https://imgur.com/FSyDB82.jpeg" alt="عسل بالمكسرات الملكية" class="max-w-full max-h-full object-contain rounded-lg">
+                <div class="product-image-container">
+                    <img src="https://imgur.com/FSyDB82.jpeg" alt="عسل بالمكسرات الملكية">
                 </div>
                 <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-bold honey-text-dark mb-2" id="royal-nuts-title">🍯 عسل بالمكسرات الملكية | Royal Nuts Honey</h3>
-                    <p class="honey-text-light mb-4 flex-grow" id="royal-nuts-description">طاقة طبيعية وقرمشة لا تقاوم! 🚀 مزيج فاخر من عسلنا المصري الأصيل مع تشكيلة ملكية من المكسرات المحمصة: (لوز، كاجو، فستق، بندق، وعين جمل). طاقة، صحة، وطعم خيالي!</p>
+                    <h3 class="text-2xl font-bold honey-text-dark mb-2" id="royal-nuts-title">🍯 عسل بالمكسرات الملكية</h3>
+                    <p class="honey-text-light mb-4 flex-grow" id="royal-nuts-description">طاقة طبيعية وقرمشة لا تقاوم! مزيج فاخر من عسلنا المصري الأصيل مع تشكيلة ملكية من المكسرات المحمصة: (لوز، كاجو، فستق، بندق، وعين جمل).</p>
                     
                     <div class="mb-4">
                         <p class="text-lg honey-text-dark mb-2">اختر الحجم:</p>
@@ -210,6 +245,7 @@
 
         </main>
 
+        <!-- Order Form Section -->
         <section class="mt-12 bg-amber-50 p-6 rounded-2xl shadow-xl">
             <p class="honey-text-dark mb-4 text-xl font-semibold text-center" id="order-quantity-info">📦 الكمية محدودة – اطلب الآن!</p>
             <p class="text-center text-lg honey-text-light mb-6" id="order-form-subtitle">املأ النموذج أدناه لإرسال طلبك مباشرة عبر واتساب.</p>
@@ -229,7 +265,7 @@
                 </div>
 
                 <div id="product-lines-container" class="space-y-4 border border-amber-200 p-4 rounded-lg bg-amber-50">
-                    <!-- Product lines will be added here dynamically -->
+                    <!-- Dynamic Product Lines Inserted Here -->
                 </div>
 
                 <button type="button" onclick="addProductLine()" class="w-full bg-amber-200 text-amber-800 font-bold py-2 px-4 rounded-full shadow-md transition hover:bg-amber-300" id="add-product-btn">
@@ -251,72 +287,69 @@
             </form>
         </section>
 
-        <footer class="text-center mt-12 py-6">
-            <a href="https://wa.me/971568326116?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%B9%D8%B3%D9%84%20%D8%A7%D9%84%D8%A8%D9%8A%D8%AA%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%B7%D9%84%D8%A8"
-               class="inline-block honey-bg-accent text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-lg hidden" id="whatsapp-btn-text-old">
-            </a>
-        </footer>
-
     </div>
 
     <script>
         const productsData = {
             "clover_1_4": {
-                ar: "عسل نحل طبيعي بالشمع الفاخر - ¼ كيلو",
-                en: "Natural Honey with Natural Comb - ¼ KG",
+                ar: "عسل نحل طبيعي بالشمع - ¼ كيلو",
+                en: "Natural Honey with Comb - ¼ KG",
                 price: 25,
-                img: "https://imgur.com/8ozxEOZ.jpeg",
-                imgContainerClass: "h-64"
+                img: "https://imgur.com/8ozxEOZ.jpeg"
             },
             "clover_1_2": {
-                ar: "عسل نحل طبيعي بالشمع الفاخر - ½ كيلو",
-                en: "Natural Honey with Natural Comb - ½ KG",
+                ar: "عسل نحل طبيعي بالشمع - ½ كيلو",
+                en: "Natural Honey with Comb - ½ KG",
                 price: 45,
-                img: "https://imgur.com/8ozxEOZ.jpeg",
-                imgContainerClass: "h-72"
+                img: "https://imgur.com/8ozxEOZ.jpeg"
             },
             "clover_1": {
-                ar: "عسل نحل طبيعي بالشمع الفاخر - 1 كيلو",
-                en: "Natural Honey with Natural Comb - 1 KG",
+                ar: "عسل نحل طبيعي بالشمع - 1 كيلو",
+                en: "Natural Honey with Comb - 1 KG",
                 price: 85,
-                img: "https://imgur.com/8ozxEOZ.jpeg",
-                imgContainerClass: "h-80"
+                img: "https://imgur.com/8ozxEOZ.jpeg"
+            },
+            "squeeze_1_4": {
+                ar: "عسل عبوة اسكويز - ¼ كيلو",
+                en: "Squeeze Honey Bottle - ¼ KG",
+                price: 25,
+                img: "https://imgur.com/vIdADYw.jpeg"
+            },
+            "squeeze_1_2": {
+                ar: "عسل عبوة اسكويز - ½ كيلو",
+                en: "Squeeze Honey Bottle - ½ KG",
+                price: 45,
+                img: "https://imgur.com/vIdADYw.jpeg"
             },
             "health_offer": {
                 ar: "عرض الطاقة القصوى والصحة الشاملة",
-                en: "Ultimate Vitality & Wellness Honey Blend",
+                en: "Ultimate Vitality & Wellness Offer",
                 price: 100,
-                img: "https://imgur.com/QCqn0kZ.jpge",
-                imgContainerClass: "h-80"
+                img: "https://imgur.com/QCqn0kZ.jpge"
             },
             "honeycomb_half": {
                 ar: "شهد العسل - ½ كيلو",
                 en: "Natural Honeycomb - ½ KG",
                 price: 50,
-                img: "https://imgur.com/GNhW77E.jpge",
-                imgContainerClass: "h-80"
+                img: "https://imgur.com/GNhW77E.jpge"
             },
             "honeycomb_full": {
                 ar: "شهد العسل - 1 كيلو",
                 en: "Natural Honeycomb - 1 KG",
                 price: 90,
-                img: "https://imgur.com/GNhW77E.jpge",
-                imgContainerClass: "h-80"
+                img: "https://imgur.com/GNhW77E.jpge"
             },
-            // NEW PRODUCT: Royal Nuts Honey - 2 sizes only
             "royal_nuts_half": {
                 ar: "عسل بالمكسرات الملكية - ½ كيلو",
                 en: "Royal Nuts Honey - ½ KG",
                 price: 70,
-                img: "https://imgur.com/FSyDB82.jpeg",
-                imgContainerClass: "h-80"
+                img: "https://imgur.com/FSyDB82.jpeg"
             },
             "royal_nuts_full": {
                 ar: "عسل بالمكسرات الملكية - 1 كيلو",
                 en: "Royal Nuts Honey - 1 KG",
                 price: 130,
-                img: "https://imgur.com/FSyDB82.jpeg",
-                imgContainerClass: "h-80"
+                img: "https://imgur.com/FSyDB82.jpeg"
             }
         };
 
@@ -325,8 +358,6 @@
                 title: "عروض بيت العسل",
                 companyName: "بيت العسل",
                 slogan: "من بيتنا لبيتك... عسل طبيعي مضمون من المنحل مباشرة 🐝",
-                logoUrl: "https://imgur.com/doKxqHM.jpeg",
-                logoAlt: "شعار بيت العسل الجديد",
                 deliveryText: "🚚 يوجد توصيل لكل الإمارات",
                 offerBannerTitle: {
                     line1: "🎉 بمناسبة الافتتاح... عروض خيالية 🎉",
@@ -334,12 +365,9 @@
                 },
                 cloverHoneyTitle: "عسل نحل طبيعي بالشمع الفاخر",
                 cloverHoneyDescription: "عسل طبيعي فاخر، يأتيكم مباشرة من المنحل مع الشمع، ليضمن لكم تجربة فريدة ونكهة غنية أصيلة.",
+                squeezeHoneyTitle: "عسل طبيعي (عبوة اسكويز)",
+                squeezeHoneyDescription: "عسلنا النقي في عبوة 'اسكويز' العصرية. مثالية للاستخدام السريع، تمنحك تحكماً كاملاً بالكمية بدون تنقيط أو فوضى. الحل العملي والأكثر نظافة للتحلية اليومية وفي حقائب الأطفال.",
                 chooseSizeText: "اختر الحجم:",
-                sizeOptions: {
-                    "¼ كيلو": "¼ كيلو",
-                    "½ كيلو": "½ كيلو",
-                    "1 كيلو": "1 كيلو"
-                },
                 healthOfferTitle: "عرض الطاقة القصوى والصحة الشاملة",
                 healthOfferDescription: "مجموعة متكاملة لتعزيز طاقتك وصحتك العامة، تجمع بين نقاء العسل وفوائد اللقاح وغذاء الملكات.",
                 healthOfferList: [
@@ -347,11 +375,8 @@
                     "<span>🟠</span> 20 جم حبوب لقاح طبيعية",
                     "<span>👑</span> 10 جم غذاء ملكات النحل الأصلي"
                 ],
-                healthOfferPrice: "100 درهم",
-                royalNutsTitle: "🍯 عسل بالمكسرات الملكية | Royal Nuts Honey",
-                royalNutsDescription: "طاقة طبيعية وقرمشة لا تقاوم! 🚀 مزيج فاخر من عسلنا المصري الأصيل مع تشكيلة ملكية من المكسرات المحمصة: (لوز، كاجو، فستق، بندق، وعين جمل). طاقة، صحة، وطعم خيالي!",
+                royalNutsTitle: "🍯 عسل بالمكسرات الملكية",
                 orderQuantityInfo: "📦 الكمية محدودة – اطلب الآن!",
-                whatsappBtnText: "📲 اطلب الآن عبر واتساب",
                 currency: "درهم",
                 orderFormSubtitle: "املأ النموذج أدناه لإرسال طلبك مباشرة عبر واتساب.",
                 labelCustomerName: "اسم العميل:",
@@ -371,9 +396,6 @@
                 orderMessageCustomerName: "الاسم:",
                 orderMessageCustomerPhone: "الهاتف:",
                 orderMessageDeliveryLocation: "الموقع:",
-                orderMessageProductsList: "المنتجات:",
-                orderMessageProduct: "المنتج:",
-                orderMessageQuantity: "الكمية:",
                 orderMessageTotal: "الإجمالي:",
                 inquiryMessage: "مرحباً بيت العسل، لدي استفسار عام.",
                 formValidationMessage: "الرجاء ملء جميع الحقول المطلوبة واختيار منتج واحد على الأقل بكمية صحيحة."
@@ -381,36 +403,28 @@
             en: {
                 title: "Honey House Offers",
                 companyName: "Honey House",
-                slogan: "From our home to yours... Guaranteed natural honey directly from the apiary 🐝",
-                logoUrl: "https://imgur.com/doKxqHM.jpeg",
-                logoAlt: "New Honey House Logo",
+                slogan: "From our home to yours... Guaranteed natural honey from the apiary 🐝",
                 deliveryText: "🚚 Delivery available across all Emirates",
                 offerBannerTitle: {
                     line1: "🎉 Grand Opening Special! Unbeatable Prices 🎉",
                     line2: "For a Limited Time! Don't Miss Out!"
                 },
-                cloverHoneyTitle: "Natural Honey with Natural Comb",
-                cloverHoneyDescription: "Luxurious natural clover honey, delivered directly from the apiary with natural comb, ensuring a unique experience and rich authentic flavor.",
+                cloverHoneyTitle: "Natural Honey with Comb",
+                cloverHoneyDescription: "Luxurious natural clover honey, delivered directly from the apiary with natural comb, ensuring a unique experience.",
+                squeezeHoneyTitle: "Natural Honey (Squeeze Bottle)",
+                squeezeHoneyDescription: "Our pure honey in a modern squeeze bottle. Perfect for daily use, giving you full control with no drips or mess. The smartest solution for work or kids' meals.",
                 chooseSizeText: "Choose Size:",
-                sizeOptions: {
-                    "¼ كيلو": "¼ KG",
-                    "½ كيلو": "½ KG",
-                    "1 كيلو": "1 KG"
-                },
                 healthOfferTitle: "Ultimate Energy & Holistic Health Offer",
-                healthOfferDescription: "A complete health package to boost your energy and overall well-being, combining pure honey with the benefits of natural pollen and original royal jelly.",
+                healthOfferDescription: "A complete health package to boost your energy and overall well-being.",
                 healthOfferList: [
                     "<span>🍯</span> 500g Pure Clover Honey",
                     "<span>🟠</span> 20g Natural Bee Pollen",
                     "<span>👑</span> 10g Original Royal Jelly"
                 ],
-                healthOfferPrice: "100 AED",
-                royalNutsTitle: "🍯 Royal Nuts Honey | عسل بالمكسرات الملكية",
-                royalNutsDescription: "Natural energy and irresistible crunch! 🚀 A luxurious blend of our authentic Egyptian honey with a royal mix of roasted nuts: (almonds, cashews, pistachios, hazelnuts, and walnuts). Energy, health, and amazing taste!",
+                royalNutsTitle: "🍯 Royal Nuts Honey",
                 orderQuantityInfo: "📦 Limited quantity – Order Now!",
-                whatsappBtnText: "📲 Order Now via WhatsApp",
                 currency: "AED",
-                orderFormSubtitle: "Fill out the form below to send your order directly via WhatsApp.",
+                orderFormSubtitle: "Fill out the form below to send your order via WhatsApp.",
                 labelCustomerName: "Customer Name:",
                 placeholderCustomerName: "Full Name",
                 labelCustomerPhone: "Phone Number:",
@@ -424,200 +438,76 @@
                 sendInquiryBtn: "General Inquiry via WhatsApp",
                 addProductBtn: "+ Add Another Product",
                 removeProductBtn: "Remove",
-                orderMessageHeader: "New Order from Honey House website:",
+                orderMessageHeader: "New Order from Honey House:",
                 orderMessageCustomerName: "Name:",
                 orderMessageCustomerPhone: "Phone:",
                 orderMessageDeliveryLocation: "Location:",
-                orderMessageProductsList: "Products:",
-                orderMessageProduct: "Product:",
-                orderMessageQuantity: "Quantity:",
                 orderMessageTotal: "Total:",
                 inquiryMessage: "Hello Honey House, I have a general inquiry.",
-                formValidationMessage: "Please fill in all required fields and select at least one product with a valid quantity."
+                formValidationMessage: "Please fill in all required fields."
             }
         };
 
         let currentLang = 'ar';
 
+        function updatePrice(price, selectedButton, productKey) {
+            document.getElementById('honey-price').innerText = `${price} ${content[currentLang].currency}`;
+            document.querySelectorAll('#clover-honey-card .size-btn').forEach(btn => btn.classList.remove('active-size'));
+            selectedButton.classList.add('active-size');
+        }
+
+        function updateSqueezePrice(price, selectedButton, productKey) {
+            document.getElementById('squeeze-honey-price').innerText = `${price} ${content[currentLang].currency}`;
+            document.querySelectorAll('.squeeze-size-btn').forEach(btn => btn.classList.remove('active-size'));
+            selectedButton.classList.add('active-size');
+        }
+
         function updateHoneycombPrice(price, selectedButton) {
-            const currency = content[currentLang].currency;
-            document.getElementById('honeycomb-wax-price').innerText = `${price} ${currency}`;
-            
-            const buttons = document.querySelectorAll('.honeycomb-size-btn');
-            buttons.forEach(button => {
-                button.classList.remove('active-size');
-            });
-            
+            document.getElementById('honeycomb-wax-price').innerText = `${price} ${content[currentLang].currency}`;
+            document.querySelectorAll('.honeycomb-size-btn').forEach(btn => btn.classList.remove('active-size'));
             selectedButton.classList.add('active-size');
         }
 
         function updateRoyalNutsPrice(price, selectedButton) {
-            const currency = content[currentLang].currency;
-            document.getElementById('royal-nuts-price').innerText = `${price} ${currency}`;
-            
-            const buttons = document.querySelectorAll('.royal-nuts-size-btn');
-            buttons.forEach(button => {
-                button.classList.remove('active-size');
-            });
-            
+            document.getElementById('royal-nuts-price').innerText = `${price} ${content[currentLang].currency}`;
+            document.querySelectorAll('.royal-nuts-size-btn').forEach(btn => btn.classList.remove('active-size'));
             selectedButton.classList.add('active-size');
         }
 
         function applyLanguageContent() {
-            const html = document.documentElement;
-            const body = document.body;
-            const toggleBtn = document.getElementById('lang-toggle-btn');
-            const companyLogo = document.getElementById('company-logo');
+            const c = content[currentLang];
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.body.classList.toggle('en', currentLang === 'en');
+            document.getElementById('lang-toggle-btn').innerText = currentLang === 'ar' ? 'English' : 'العربية';
 
-            html.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
-            body.classList.toggle('en', currentLang === 'en');
+            document.getElementById('company-name').innerText = c.companyName;
+            document.getElementById('slogan').innerText = c.slogan;
+            document.getElementById('delivery-text').innerText = c.deliveryText;
+            document.getElementById('offer-banner-title-line1').innerText = c.offerBannerTitle.line1;
+            document.getElementById('offer-banner-title-line2').innerText = c.offerBannerTitle.line2;
+
+            document.getElementById('clover-honey-title').innerText = c.cloverHoneyTitle;
+            document.getElementById('clover-honey-description').innerText = c.cloverHoneyDescription;
+            document.getElementById('squeeze-honey-title').innerText = c.squeezeHoneyTitle;
+            document.getElementById('squeeze-honey-description').innerText = c.squeezeHoneyDescription;
             
-            toggleBtn.innerText = currentLang === 'ar' ? 'English' : 'العربية';
-
-            document.title = content[currentLang].title;
-            companyLogo.src = content[currentLang].logoUrl;
-            companyLogo.alt = content[currentLang].logoAlt;
-            document.getElementById('company-name').innerText = content[currentLang].companyName;
-            document.getElementById('slogan').innerText = content[currentLang].slogan;
-            
-            // Update delivery text
-            document.getElementById('delivery-text').innerText = content[currentLang].deliveryText;
-            
-            document.getElementById('offer-banner-title-line1').innerText = content[currentLang].offerBannerTitle.line1;
-            document.getElementById('offer-banner-title-line2').innerText = content[currentLang].offerBannerTitle.line2;
-
-            document.getElementById('clover-honey-title').innerText = content[currentLang].cloverHoneyTitle;
-            document.getElementById('clover-honey-description').innerText = content[currentLang].cloverHoneyDescription;
-            document.getElementById('choose-size-text').innerText = content[currentLang].chooseSizeText;
-
-            // Update honeycomb product information
-            if (document.getElementById('honeycomb-wax-title')) {
-                document.getElementById('honeycomb-wax-title').innerText = currentLang === 'ar' ? 'شهد العسل' : 'Natural Honeycomb';
-                document.getElementById('honeycomb-wax-description').innerText = currentLang === 'ar' 
-                    ? "قرص العسل الطبيعي الذي يبنيه النحل من شمع العسل، ويحتوي على العسل الخام المختوم مادة طبيعية غنية بالفوائد الصحية"
-                    : "Natural honeycomb built by bees from beeswax, containing sealed raw honey - a natural substance rich in health benefits";
-                
-                // Update size buttons text
-                const honeycombSizeButtons = document.querySelectorAll('.honeycomb-size-btn');
-                honeycombSizeButtons.forEach(button => {
-                    const arText = button.getAttribute('data-ar');
-                    const enText = button.getAttribute('data-en');
-                    button.innerText = currentLang === 'ar' ? arText : enText;
-                });
-                
-                // Update price display
-                const activeHoneycombButton = document.querySelector('.honeycomb-size-btn.active-size');
-                if (activeHoneycombButton) {
-                    const price = activeHoneycombButton.getAttribute('onclick').match(/\d+/)[0];
-                    document.getElementById('honeycomb-wax-price').innerText = `${price} ${content[currentLang].currency}`;
-                }
-            }
-
-            // Update royal nuts product information
-            if (document.getElementById('royal-nuts-title')) {
-                document.getElementById('royal-nuts-title').innerText = content[currentLang].royalNutsTitle;
-                document.getElementById('royal-nuts-description').innerText = content[currentLang].royalNutsDescription;
-                
-                // Update size buttons text
-                const royalNutsSizeButtons = document.querySelectorAll('.royal-nuts-size-btn');
-                royalNutsSizeButtons.forEach(button => {
-                    const arText = button.getAttribute('data-ar');
-                    const enText = button.getAttribute('data-en');
-                    button.innerText = currentLang === 'ar' ? arText : enText;
-                });
-                
-                // Update price display
-                const activeRoyalNutsButton = document.querySelector('.royal-nuts-size-btn.active-size');
-                if (activeRoyalNutsButton) {
-                    const price = activeRoyalNutsButton.getAttribute('onclick').match(/\d+/)[0];
-                    document.getElementById('royal-nuts-price').innerText = `${price} ${content[currentLang].currency}`;
-                }
-            }
-
-            const sizeButtons = document.querySelectorAll('#clover-honey-card .size-btn');
-            sizeButtons.forEach(button => {
-                const arText = button.getAttribute('data-ar');
-                const enText = button.getAttribute('data-en');
-                button.innerText = currentLang === 'ar' ? arText : enText;
+            document.querySelectorAll('.size-btn, .squeeze-size-btn, .honeycomb-size-btn, .royal-nuts-size-btn').forEach(btn => {
+                btn.innerText = btn.getAttribute(`data-${currentLang}`);
             });
 
-            document.getElementById('health-offer-title').innerText = content[currentLang].healthOfferTitle;
-            document.getElementById('health-offer-description').innerText = content[currentLang].healthOfferDescription;
-            
-            const healthOfferList = document.getElementById('health-offer-list');
-            healthOfferList.innerHTML = content[currentLang].healthOfferList.map(item => `<li class="flex items-center justify-start gap-3">${item}</li>`).join('');
-
-            document.getElementById('health-offer-price').innerText = content[currentLang].healthOfferPrice;
-
-            document.getElementById('order-quantity-info').innerText = content[currentLang].orderQuantityInfo;
-            document.getElementById('order-form-subtitle').innerText = content[currentLang].orderFormSubtitle;
-            document.getElementById('label-customer-name').innerText = content[currentLang].labelCustomerName;
-            document.getElementById('customer-name').placeholder = content[currentLang].placeholderCustomerName;
-            document.getElementById('label-customer-phone').innerText = content[currentLang].labelCustomerPhone;
-            document.getElementById('customer-phone').placeholder = content[currentLang].placeholderCustomerPhone;
-            document.getElementById('label-delivery-location').innerText = content[currentLang].labelDeliveryLocation;
-            document.getElementById('delivery-location').placeholder = content[currentLang].placeholderDeliveryLocation;
-            
-            document.getElementById('add-product-btn').innerText = content[currentLang].addProductBtn;
-            document.getElementById('send-order-btn').innerText = content[currentLang].sendOrderBtn;
-            document.getElementById('send-inquiry-btn').innerText = content[currentLang].sendInquiryBtn;
-
-            const productSelectItems = document.querySelectorAll('.product-select-item');
-            productSelectItems.forEach(selectElement => {
-                const currentSelectedValue = selectElement.value;
-                selectElement.innerHTML = createProductOptionElements();
-                selectElement.value = currentSelectedValue;
-            });
-
-            document.querySelectorAll('.product-line label[data-label-key="labelProductSelect"]').forEach(label => {
-                label.innerText = content[currentLang].labelProductSelect;
-            });
-            document.querySelectorAll('.product-line label[data-label-key="labelQuantityInput"]').forEach(label => {
-                label.innerText = content[currentLang].labelQuantityInput;
-            });
-
-            document.querySelectorAll('.product-line button').forEach(btn => {
-                if (btn.onclick.toString().includes('removeProductLine')) {
-                    btn.innerText = content[currentLang].removeProductBtn;
-                }
-            });
-            
-            const activeSizeButton = document.querySelector('#clover-honey-card .size-btn.active-size');
-            if (activeSizeButton) {
-                const productKey = activeSizeButton.onclick.toString().match(/'([^']+)'/)[1];
-                document.getElementById('honey-price').innerText = `${productsData[productKey].price} ${content[currentLang].currency}`;
-            } else {
-                document.getElementById('honey-price').innerText = `${productsData.clover_1_4.price} ${content[currentLang].currency}`;
-            }
+            document.getElementById('health-offer-title').innerText = c.healthOfferTitle;
+            document.getElementById('health-offer-description').innerText = c.healthOfferDescription;
+            document.getElementById('label-customer-name').innerText = c.labelCustomerName;
+            document.getElementById('customer-name').placeholder = c.placeholderCustomerName;
+            document.getElementById('label-customer-phone').innerText = c.labelCustomerPhone;
+            document.getElementById('customer-phone').placeholder = c.placeholderCustomerPhone;
+            document.getElementById('label-delivery-location').innerText = c.labelDeliveryLocation;
+            document.getElementById('delivery-location').placeholder = c.placeholderDeliveryLocation;
+            document.getElementById('add-product-btn').innerText = c.addProductBtn;
+            document.getElementById('send-order-btn').innerText = c.sendOrderBtn;
+            document.getElementById('send-inquiry-btn').innerText = c.sendInquiryBtn;
 
             updateOrderFormPrice();
-        }
-
-        function updatePrice(price, selectedButton, productKey) {
-            const currency = content[currentLang].currency;
-            document.getElementById('honey-price').innerText = `${price} ${currency}`;
-            
-            const buttons = document.querySelectorAll('#clover-honey-card .size-btn');
-            buttons.forEach(button => {
-                button.classList.remove('active-size');
-            });
-            
-            selectedButton.classList.add('active-size');
-
-            const cloverHoneyImage = document.getElementById('clover-honey-image');
-            const cloverImageContainer = document.getElementById('clover-image-container');
-
-            if (cloverHoneyImage && productsData[productKey] && productsData[productKey].img) {
-                cloverHoneyImage.src = productsData[productKey].img;
-            }
-            if (cloverImageContainer && productsData[productKey] && productsData[productKey].imgContainerClass) {
-                cloverImageContainer.classList.forEach(className => {
-                    if (className.startsWith('h-')) {
-                        cloverImageContainer.classList.remove(className);
-                    }
-                });
-                cloverImageContainer.classList.add(productsData[productKey].imgContainerClass);
-            }
         }
 
         function createProductOptionElements() {
@@ -634,128 +524,74 @@
             newProductLine.className = 'flex flex-col sm:flex-row gap-2 items-end product-line';
             newProductLine.innerHTML = `
                 <div class="flex-grow w-full">
-                    <label class="block text-sm font-medium honey-text-dark mb-1" data-label-key="labelProductSelect">${content[currentLang].labelProductSelect}</label>
-                    <select class="w-full p-2 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white product-select-item" onchange="updateOrderFormPrice()">
+                    <label class="block text-sm font-medium honey-text-dark mb-1">${content[currentLang].labelProductSelect}</label>
+                    <select class="w-full p-2 border border-amber-300 rounded-lg bg-white product-select-item" onchange="updateOrderFormPrice()">
                         ${createProductOptionElements()}
                     </select>
                 </div>
                 <div class="w-24">
-                    <label class="block text-sm font-medium honey-text-dark mb-1" data-label-key="labelQuantityInput">${content[currentLang].labelQuantityInput}</label>
-                    <input type="number" min="1" value="1" class="w-full p-2 border border-amber-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 quantity-input-item" onchange="updateOrderFormPrice()">
+                    <label class="block text-sm font-medium honey-text-dark mb-1">${content[currentLang].labelQuantityInput}</label>
+                    <input type="number" min="1" value="1" class="w-full p-2 border border-amber-300 rounded-lg quantity-input-item" onchange="updateOrderFormPrice()">
                 </div>
-                <button type="button" onclick="removeProductLine(this)" class="bg-red-400 text-white py-2 px-4 rounded-full text-sm font-bold shadow-md transition hover:bg-red-500 flex-shrink-0">
+                <button type="button" onclick="this.closest('.product-line').remove(); updateOrderFormPrice();" class="bg-red-400 text-white py-2 px-4 rounded-full text-sm font-bold">
                     ${content[currentLang].removeProductBtn}
                 </button>
             `;
             container.appendChild(newProductLine);
-            updateOrderFormPrice();
-        }
-
-        function removeProductLine(buttonElement) {
-            buttonElement.closest('.product-line').remove();
-            updateOrderFormPrice();
         }
 
         function updateOrderFormPrice() {
-            const productLines = document.querySelectorAll('.product-line');
             let grandTotal = 0;
-
-            productLines.forEach(line => {
-                const productSelect = line.querySelector('.product-select-item');
-                const quantityInput = line.querySelector('.quantity-input-item');
-
-                const selectedProductKey = productSelect.value;
-                const quantity = parseInt(quantityInput.value) > 0 ? parseInt(quantityInput.value) : 0;
-
-                if (selectedProductKey && quantity > 0 && productsData[selectedProductKey]) {
-                    const unitPrice = productsData[selectedProductKey].price;
-                    grandTotal += unitPrice * quantity;
-                }
+            document.querySelectorAll('.product-line').forEach(line => {
+                const key = line.querySelector('.product-select-item').value;
+                const qty = parseInt(line.querySelector('.quantity-input-item').value) || 0;
+                if (key && productsData[key]) grandTotal += productsData[key].price * qty;
             });
-
             document.getElementById('order-total-price').innerText = `${content[currentLang].orderTotalPrefix} ${grandTotal} ${content[currentLang].currency}`;
         }
 
         function sendOrder() {
-            const customerName = document.getElementById('customer-name').value;
-            const customerPhone = document.getElementById('customer-phone').value;
-            const deliveryLocation = document.getElementById('delivery-location').value;
-            const productLines = document.querySelectorAll('.product-line');
+            const name = document.getElementById('customer-name').value;
+            const phone = document.getElementById('customer-phone').value;
+            const loc = document.getElementById('delivery-location').value;
+            const lines = document.querySelectorAll('.product-line');
 
-            if (!customerName || !customerPhone || !deliveryLocation || productLines.length === 0) {
+            if (!name || !phone || !loc || lines.length === 0) {
                 alert(content[currentLang].formValidationMessage);
                 return;
             }
 
-            let productsSummary = '';
-            let allProductsValid = true;
-            let orderTotal = 0;
-
-            productLines.forEach((line, index) => {
-                const productSelect = line.querySelector('.product-select-item');
-                const quantityInput = line.querySelector('.quantity-input-item');
-
-                const selectedProductKey = productSelect.value;
-                const quantity = parseInt(quantityInput.value);
-
-                if (!selectedProductKey || quantity <= 0 || !productsData[selectedProductKey]) {
-                    allProductsValid = false;
-                    return;
+            let summary = '';
+            let total = 0;
+            lines.forEach((line, i) => {
+                const key = line.querySelector('.product-select-item').value;
+                const qty = line.querySelector('.quantity-input-item').value;
+                if (key) {
+                    summary += `${i+1}. ${productsData[key][currentLang]} x ${qty}\n`;
+                    total += productsData[key].price * qty;
                 }
-                const unitPrice = productsData[selectedProductKey].price;
-                const productName = productsData[selectedProductKey][currentLang];
-                
-                productsSummary += `${index + 1}. ${content[currentLang].orderMessageProduct} ${productName} (${unitPrice} ${content[currentLang].currency}), ${content[currentLang].orderMessageQuantity} ${quantity}\n`;
-                orderTotal += unitPrice * quantity;
             });
 
-            if (!allProductsValid) {
-                alert(content[currentLang].formValidationMessage);
-                return;
-            }
-
-            const totalMessage = `${orderTotal} ${content[currentLang].currency}`;
-
-            const message = `${content[currentLang].orderMessageHeader}\n\n` +
-                            `${content[currentLang].orderMessageCustomerName} ${customerName}\n` +
-                            `${content[currentLang].orderMessageCustomerPhone} ${customerPhone}\n` +
-                            `${content[currentLang].orderMessageDeliveryLocation} ${deliveryLocation}\n\n` +
-                            `${content[currentLang].orderMessageProductsList}\n${productsSummary}\n` +
-                            `${content[currentLang].orderMessageTotal} ${totalMessage}`;
+            const msg = `${content[currentLang].orderMessageHeader}\n\n` +
+                        `${content[currentLang].orderMessageCustomerName} ${name}\n` +
+                        `${content[currentLang].orderMessageCustomerPhone} ${phone}\n` +
+                        `${content[currentLang].orderMessageDeliveryLocation} ${loc}\n\n` +
+                        `${summary}\n` +
+                        `${content[currentLang].orderMessageTotal} ${total} ${content[currentLang].currency}`;
             
-            window.open(`https://wa.me/971568326116?text=${encodeURIComponent(message)}`, '_blank');
+            window.open(`https://wa.me/971568326116?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
         function sendInquiry() {
-            const message = content[currentLang].inquiryMessage;
-            window.open(`https://wa.me/971568326116?text=${encodeURIComponent(message)}`, '_blank');
+            window.open(`https://wa.me/971568326116?text=${encodeURIComponent(content[currentLang].inquiryMessage)}`, '_blank');
         }
 
-        function switchLanguage() {
+        document.getElementById('lang-toggle-btn').addEventListener('click', () => {
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
             applyLanguageContent();
-        }
-
-        document.getElementById('lang-toggle-btn').addEventListener('click', switchLanguage);
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
-            const defaultButton = document.querySelector('#clover-honey-card .size-btn[data-ar="¼ كيلو"]');
-            if (defaultButton) {
-                updatePrice(productsData['clover_1_4'].price, defaultButton, 'clover_1_4');
-            }
-            
-            // Set default honeycomb button to ½ kg
-            const defaultHoneycombButton = document.querySelector('.honeycomb-size-btn[data-ar="½ كيلو"]');
-            if (defaultHoneycombButton) {
-                updateHoneycombPrice(50, defaultHoneycombButton);
-            }
-            
-            // Set default royal nuts button to ½ kg
-            const defaultRoyalNutsButton = document.querySelector('.royal-nuts-size-btn[data-ar="½ كيلو"]');
-            if (defaultRoyalNutsButton) {
-                updateRoyalNutsPrice(70, defaultRoyalNutsButton);
-            }
-            
             addProductLine();
             applyLanguageContent();
         });
